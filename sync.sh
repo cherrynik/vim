@@ -1,9 +1,10 @@
-git clone https://github.com/cherrynik/vim.git /tmp/cherrynik-vim-config
+# General config
+curl https://raw.githubusercontent.com/cherrynik/vim/master/.vimrc > ~/.vimrc
 
-cd /tmp/cherrynik-vim-config
+# Plugins
+git clone https://github.com/itchyny/lightline.vim ~/.vim/pack/plugins/start/lightline
 
-cp ./.vimrc ~/
+# cp -r ./.vim/ ~/
 
-cp -r ./.vim ~/
-
-rm -rf /tmp/cherrynik-vim-config
+# Clean up
+# rm -rf /tmp/cherrynik-vim-config
