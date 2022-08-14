@@ -2,5 +2,5 @@
 
 ## Installation
 ```sh
-curl https://raw.githubusercontent.com/cherrynik/vim/master/.vimrc > ~/.vimrc
+curl https://raw.githubusercontent.com/cherrynik/vim/master/sync.sh | bash
 ```
