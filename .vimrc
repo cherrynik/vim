@@ -1,3 +1,6 @@
+" Delete <C-c> & <C-v> keybindings in yo' terminal to make vim modes work
+" correctly
+
 " General settings
 set nocompatible
 set wrap
@@ -11,9 +14,29 @@ set ruler
 set showcmd
 set incsearch
 set hlsearch
-set paste
 
+" YCM delay fix
+set timeout
+set ttimeout
+set timeoutlen=2000
+set ttimeoutlen=100
+
+set updatetime=500
+
+set list
+set listchars=
+set listchars+=tab:░\
+set listchars+=trail:·
+set listchars+=extends:»
+set listchars+=precedes:«
+set listchars+=nbsp:⣿
+set listchars+=space:·
+
+" Line numbers in Explore mode
 let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
+" Line numbers in NERDTree
+let NERDTreeShowLineNumbers=1
+autocmd FileType nerdtree setlocal relativenumber
 
 syntax on
 
@@ -41,8 +64,19 @@ nnoremap <S-Tab> <<
 " for insert mode
 inoremap <S-Tab> <C-d>
 
+" Auto-closing brackets
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
 " Colorscheme setup
 let g:gruvbox_italic=1
+
+" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 autocmd vimenter * ++nested colorscheme gruvbox
 
@@ -82,8 +116,11 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'mattn/emmet-vim'
+" Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 
 filetype plugin indent on
-
