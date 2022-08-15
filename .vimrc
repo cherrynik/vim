@@ -12,6 +12,9 @@ set showcmd
 set incsearch
 set hlsearch
 set paste
+
+let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
+
 syntax on
 
 function! UseTabs()
